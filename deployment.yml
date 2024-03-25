@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-node-deployment
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: test-node
+  template:
+    metadata:
+      labels:
+        app: test-node
+    spec:
+      containers:
+      - name: test-node-container
+        image: dahitsahadev/test-node
+        ports:
+        - containerPort: 4000
+        env:
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: test-node-config
+              key: PORT
+     
