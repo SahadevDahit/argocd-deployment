@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: test-node-container
-        image: dahitsahadev/node-argocd:26
+        image: dahitsahadev/node-argocd:27
         ports:
         - containerPort: 4000
         env:
